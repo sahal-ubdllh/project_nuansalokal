@@ -278,21 +278,6 @@ aside ul li a {
 
 /* css_login */
 /* Styling Global dan Body */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0; /* Latar belakang halaman abu-abu muda */
-}
-
 /* Kontainer Utama Form Login */
 .login-container {
     display: flex;
