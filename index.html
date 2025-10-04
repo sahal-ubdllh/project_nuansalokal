@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuansa Lokal</title>
 
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,91 +14,110 @@
 <body>
     <header class="desktop-header">
         <div class="nav-container">
-            <p class="logo">Nuansa Lokal</p>
+            <div class="logo">
+                Nuansa Lokal
+            </div>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#produk">Kategori</a></li>
+                    <li><a href="#favorit">Favorit</a></li>
+                </ul>
+            </div>
             <div class="search-bar">
                 <input type="text" placeholder="Cari produk...">
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="icon-container">
                 <div class="cart-icon">
-                    <a href="#keranjang"><i class="fas fa-cart-shopping"></i></a>
+                    <a href="./pages/cart.html"><i class="fas fa-cart-shopping"></i></a>
                 </div>
                 <div class="profile-icon">
-                    <a href="#profile"><i class="fas fa-user"></i></a>
+                    <a href="./pages/profil.html"><i class="fas fa-user"></i></a>
                 </div>
-                <a href="#register" class="regist-button">Daftar</a>
             </div>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#beranda">Beranda</a></li>
-                <li><a href="#produk">Kategori</a></li>
-                <li><a href="#favorit">Favorit</a></li>
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-            </ul>
-        </nav>
     </header>
 
     <header class="mobile-header">
         <nav class="nav-container">
             <div class="logo">Nuansa Lokal</div>
-            <div class="kategori">
-                <i class="fas fa-bars"></i>
-                <span>Kategori</span>
-            </div>
             <div class="search-bar">
                 <input type="text" placeholder="Cari produk...">
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="icon-container">
-                <a href="#register" class="regist-button">Daftar</a>
+                <div class="cart-icon">
+                    <a href="./pages/cart.html"><i class="fas fa-cart-shopping"></i></a>
+                </div>
+                <div class="profile-icon">
+                    <a href="./pages/profil.html"><i class="fa-solid fa-message"></i></a>
+                </div>
             </div>
         </nav>
     </header>
     <div class="navbar-bottom">
-        <a href=""><i class="fas fa-home"></i></a>
-        <a href=""><i class="fas fa-search"></i></a>
-        <a href=""><i class="fas fa-cart-shopping"></i></a>
-        <a href=""><i class="fas fa-user"></i></a>
+        <a href="#"><div class="nav-item"><i class="fas fa-home"></i>Beranda</div></a>
+        <a href="#"><div class="nav-item"><i class="fas fa-fire"></i>Terlaris</div></a>
+        <a href="./pages/cart.html"><div class="nav-item"><i class="fas fa-cart-shopping"></i>Keranjang</div></a>
+        <a href="./pages/profile.html"><div class="nav-item"><i class="fas fa-user"></i>Profil</div></a>
     </div>
 
     <main>
-        <aside id="kategori">
-            <h2>Kategori</h2>
-            <ul class="kategori-list">
-                <li><a href="#pakaian">Pakaian</a></li>
-                <li><a href="#aksesoris">Aksesoris</a></li>
-                <li><a href="#sepatu">Sepatu</a></li>
-                <li><a href="#tas">Tas</a></li>
-                <li><a href="#perhiasan">Perhiasan</a></li>
-            </ul>
-        </aside>
-
         <div class="banner-shop">
-            <div class="slider">
+            <div class="banner-slider">
                 <div class="list">
-                    <div class="item"><img src="assets/1.png" alt=""></div>
-                    <div class="item"><img src="assets/2.png" alt=""></div>
-                    <div class="item"><img src="assets/3.png" alt=""></div>
-                    <div class="item"><img src="assets/4.jpeg" alt=""></div>
-                    <div class="item"><img src="assets/5.jpeg" alt=""></div>
+                <div class="item"><img src="assets/4.png" alt=""></div>
+                <div class="item"><img src="assets/7.png" alt=""></div>
+                <div class="item"><img src="assets/3.png" alt=""></div>
+                <div class="item"><img src="assets/1.png" alt=""></div>
+                <div class="item"><img src="assets/5.png" alt=""></div>
+                <div class="item"><img src="assets/6.png" alt=""></div>
+                <div class="item"><img src="assets/2.png" alt=""></div>
                 </div>
 
                 <div class="buttons">
-                    <div class="prev"><img src="assets/left.svg" alt=""></div>
-                    <div class="next"><img src="assets/right.svg" alt=""></div>
+                <div class="prev"><img src="assets/left.svg" alt=""></div>
+                <div class="next"><img src="assets/right.svg" alt=""></div>
                 </div>
-        
+
                 <ul class="dots">
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
                 </ul>
             </div>
+
+            <div class="left-banner">
+                <div class="banner-no-slide1">
+                <img src="assets/7.png" alt="">
+                </div>
+                <div class="banner-no-slide2">
+                <img src="assets/5.png" alt="">
+                </div>
+            </div>
+            </div>
+
+        <div class="kategori">
+        <h2>Kategori</h2>
+        <ul class="kategori-list">
+            <li><a href="#aksesoris"><img src="assets/kategori1.png" alt="">Aksesoris</a></li>
+            <li><a href="#sepatu"><img src="assets/kategori2.png" alt="">Kerajinan</a></li>
+            <li><a href="#pakaian"><img src="assets/kategori3.png" alt="">Pakaian</a></li>
+            <li><a href="#tas"><img src="assets/kategori4.png" alt="">Tas</a></li>
+            <li><a href="#perhiasan"><img src="assets/kategori5.png" alt="">Batik</a></li>
+            <li><a href="#hijab"><img src="assets/kategori6.png" alt="">Hijab</a></li>
+            <li><a href="#baju"><img src="assets/kategori7.png" alt="">Kecantikan</a></li>
+            <li><a href="#celana"><img src="assets/kategori8.png" alt="">Sendal</a></li>
+            <li><a href="#jam"><img src="assets/kategori9.png" alt="">Makanan Lokal</a></li>
+            <li><a href="#parfum"><img src="assets/kategori10.png" alt="">Parfum</a></li>
+        </ul>
         </div>
+
     </main>
 
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | Nuansa Lokal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="about-page">
+        <header class="about-hero">
+            <h1>Kenalan yuk!</h1>
+            <p>Jangan ragu dalam bertanya, kami siap menghubungkanmu dan membantu UMKM Anda!</p>
+            </header>
+
+        <nav class="about-navigation">
+            <button class="nav-card active" onclick="showSection('panduan-section', this)"><i class="fas fa-book"></i> Panduan</button>
+            <button class="nav-card" onclick="showSection('mentor-section', this)"><i class="fas fa-user-tie"></i> Mentor</button>
+            <button class="nav-card" onclick="showSection('ulasan-section', this)"><i class="fas fa-star"></i> Ulasan</button>
+        </nav>
+
+        <main class="about-content">
+            <section class="website-description">
+                <p>"Nuansa Lokal" hadir sebagai solusi inovatif untuk menjembatani kesenjangan antara UMKM pasar lokal dengan dunia e-commerce...</p>
+                </section>
+
+            <section id="panduan-section" class="about-section">
+                <h2>SELAMAT DATANG Di "NUANSA LOKAL"</h2>
+                <h3>PENDAHULUAN</h3>
+                <p>Panduan ini akan membantu Anda menjelajahi setiap sudut website ini dengan mudah dan menyenangkan.</p>
+                <ol>
+                    <li>**Mengenal "Nuansa Lokal"**: "Nuansa Lokal" adalah platform online yang didedikasikan untuk menjembatani kesenjangan antara UMKM pasar lokal menjadi kedalam pasar online. <a href="#">Baca selengkapnya ></a></li>
+                    <li>**Langkah Daftar dan Masuk**: Ikuti panduan registrasi yang cepat...</li>
+                    </ol>
+            </section>
+
+            <section id="mentor-section" class="about-section hidden">
+                <h2>Pilih Mentor Terbaik untuk Bisnis Anda</h2>
+                <div class="mentor-list">
+                    <div class="mentor-card">
+                        <h4>Mentor A: Spesialis Pemasaran Digital</h4>
+                        <p>Materi: SEO, Iklan Media Sosial, Konten Kreatif.</p>
+                        <button class="btn-primary-small">Hubungi</button>
+                    </div>
+                    <div class="mentor-card">
+                        <h4>Mentor B: Strategi Produk & Kualitas</h4>
+                        <p>Materi: Standarisasi produk, Pengemasan, Manjemen Kualitas.</p>
+                        <button class="btn-primary-small">Hubungi</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ulasan-section" class="about-section hidden">
+                <h2>Ulasan dari pengguna</h2>
+                <div class="review-grid">
+                    <div class="review-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Platform ini sangat membantu UMKM kecil seperti kami untuk berani masuk ke dunia digital. Panduannya mudah dipahami!</p>
+                        <div class="reviewer-name">Sahul Ubaidillah</div>
+                    </div>
+                    </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
