@@ -87,6 +87,27 @@ window.addEventListener("load", () => {
     };
 })
 
+// untuk load produk terbaru
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".produk-list .produk-item");
+    const tombol = document.getElementById("tampilkan-lebih");
+    const tampilAwal = 8; // jumlah produk awal yang ditampilkan
+
+    // Sembunyikan semua selain 8 pertama
+    items.forEach((item, index) => {
+        if (index >= tampilAwal) item.style.display = "none";
+    });
+
+    // Event tombol klik
+    tombol.addEventListener("click", () => {
+        const hiddenItems = document.querySelectorAll(".produk-list .produk-item[style*='display: none']");
+        hiddenItems.forEach(item => item.style.display = "block");
+
+        // Hilangkan tombol setelah semua muncul
+        tombol.style.display = "none";
+    });
+});
+
 
 
 

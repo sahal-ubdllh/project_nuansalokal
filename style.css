@@ -392,6 +392,28 @@ main {
     cursor: pointer;
 }
 
+/* Tombol tampilkan lebih banyak */
+.tombol-load {
+    text-align: center;
+    margin-top: 25px;
+}
+
+#tampilkan-lebih {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#tampilkan-lebih:hover {
+    background-color: var(--secondary-color);
+}
+
+
 
 
 /* ======================================================= */
@@ -704,7 +726,7 @@ main {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 530px) {
     .search-bar {
         width: 180px;
     }
