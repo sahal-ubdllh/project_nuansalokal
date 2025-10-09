@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Produk - Nuansa Lokal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main>
+    <section class="detail-produk"></section>
+  </main>
+
+  <script src="js/detail.js"></script>
+</body>
+</html>a<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Produk - Nuansa Lokal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="detail.css" />
+</head>
+
+<body>
+  <main class="detail-container">
+    <button id="btnKembali" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
+
+    <section class="produk-detail">
+      <div class="gambar-produk">
+        <img id="mainImage" src="" alt="Gambar Produk" />
+        <div class="thumbnail-container" id="thumbnailContainer"></div>
+      </div>
+
+      <div class="info-produk">
+        <span class="kategori" id="kategoriProduk"></span>
+        <h1 id="namaProduk"></h1>
+        <h2 class="harga" id="hargaProduk"></h2>
+
+        <div class="pilihan-ukuran">
+          <p>Pilihan Ukuran:</p>
+          <div class="ukuran-btns">
+            <button>S</button><button>M</button><button>L</button><button>XL</button><button>XXL</button>
+          </div>
+        </div>
+
+        <button class="btn-keranjang" id="tambahKeranjang">Masukkan Keranjang</button>
+
+        <div class="deskripsi-container">
+          <h3>Deskripsi Produk</h3>
+          <p id="deskripsiProduk"></p>
+        </div>
+
+        <div class="pengiriman-container">
+          <h3>Pengiriman</h3>
+          <p>🚚 Estimasi 2–4 Hari</p>
+          <p>💸 Diskon Ongkir 20%</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="rating-ulasan">
+      <h2>Rating & Ulasan</h2>
+
+      <div class="rating-summary">
+        <div class="rating-angka" id="ratingAngka">0.0</div>
+        <div class="rating-bintang">⭐️⭐️⭐️⭐️⭐️</div>
+        <p id="totalUlasan">(0 ulasan)</p>
+      </div>
+
+      <div class="rating-bars" id="ratingBars"></div>
+
+      <div class="daftar-ulasan" id="daftarUlasan"></div>
+
+      <form id="formUlasan" class="form-ulasan">
+        <h3>Tulis Ulasan Anda</h3>
+        <label for="ratingInput">Pilih Rating:</label>
+        <select id="ratingInput">
+          <option value="5">5 - Sangat Baik</option>
+          <option value="4">4 - Baik</option>
+          <option value="3">3 - Cukup</option>
+          <option value="2">2 - Kurang</option>
+          <option value="1">1 - Buruk</option>
+        </select>
+        <textarea id="teksUlasan" placeholder="Tulis ulasan Anda..." required></textarea>
+        <button type="submit">Kirim Ulasan</button>
+      </form>
+    </section>
+
+    <section class="produk-list"></section>
+    <section class="produk-detail" style="display:none;"></section>
+
+
+
+
+    <section class="rekomendasi">
+      <h2>Anda juga mungkin suka</h2>
+      <div class="produk-list" id="produkRekomendasi"></div>
+    </section>
+  </main>
+
+  <script src="https://kit.fontawesome.com/a2e0ad3e1c.js" crossorigin="anonymous"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>
+

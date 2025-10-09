@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Nuansa Lokal</title>
+
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .filter-container {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="admin-header">
+    <h1>Panel Admin - Nuansa Lokal</h1>
+  </header>
+
+  <main class="admin-container">
+    <!-- Form Tambah Produk -->
+    <section class="form-section">
+      <h2>Tambah Produk Baru</h2>
+      <form id="produkForm">
+        <input type="text" name="nama" placeholder="Nama Produk" required>
+        <input type="number" name="harga" placeholder="Harga Produk" required>
+
+        <!-- Dropdown kategori -->
+        <label for="kategoriSelect">Pilih Kategori:</label>
+        <select id="kategoriSelect" name="kategori" required>
+          <option value="" disabled selected>Pilih kategori...</option>
+          <option value="Pakaian">Pakaian</option>
+          <option value="Aksesoris">Aksesoris</option>
+          <option value="Makanan">Makanan</option>
+          <option value="Dekorasi">Dekorasi</option>
+        </select>
+
+        <!-- Upload gambar -->
+        <label for="gambarUpload" class="upload-label">Upload Gambar Produk:</label>
+        <input type="file" id="gambarUpload" name="gambar" accept="image/*" required>
+        <div id="previewContainer" class="preview-container">
+          <img id="previewImage" alt="Preview Gambar" style="max-width: 200px; display: none; border-radius: 10px; margin-top: 10px;">
+        </div>
+
+        <textarea name="deskripsi" placeholder="Deskripsi Produk" rows="3"></textarea>
+        <button type="submit" class="beli-btn">Simpan Produk</button>
+      </form>
+    </section>
+
+    <!-- Filter & Daftar Produk -->
+    <section class="list-section">
+      <h2>Daftar Produk</h2>
+
+      <div class="filter-container">
+        <label for="filterKategori">Filter Kategori:</label>
+        <select id="filterKategori">
+          <option value="Semua">Semua</option>
+          <option value="Pakaian">Pakaian</option>
+          <option value="Aksesoris">Aksesoris</option>
+          <option value="Makanan">Makanan</option>
+          <option value="Dekorasi">Dekorasi</option>
+        </select>
+      </div>
+
+      <div id="adminProdukList"></div>
+    </section>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
