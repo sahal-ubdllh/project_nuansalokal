@@ -66,7 +66,11 @@ body {
 }
 
 /* Navigation Links */
-.nav-links-container { display: flex; align-items: center; gap: 20px; }
+.nav-links-container { 
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+}
 .nav-links { display: flex; gap: 15px; }
 .nav-links a {
   color: var(--primary-color);
@@ -103,7 +107,11 @@ body {
 }
 
 /* Icon Container */
-.icon-container { display: flex; align-items: center; gap: 20px; }
+.icon-container { 
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+}
 .icon-container i { font-size: 1.2rem; color: var(--primary-color); transition: color 0.3s; }
 .icon-container i:hover { color: var(--secondary-color); }
 

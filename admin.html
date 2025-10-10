@@ -37,14 +37,10 @@
         <input type="number" name="harga" placeholder="Harga Produk" required>
 
         <!-- Dropdown kategori -->
-        <label for="kategoriSelect">Pilih Kategori:</label>
-        <select id="kategoriSelect" name="kategori" required>
-          <option value="" disabled selected>Pilih kategori...</option>
-          <option value="Pakaian">Pakaian</option>
-          <option value="Aksesoris">Aksesoris</option>
-          <option value="Makanan">Makanan</option>
-          <option value="Dekorasi">Dekorasi</option>
-        </select>
+        <label for="kategoriInput">Pilih atau Tambah Kategori:</label>
+        <input type="text" id="kategoriInput" name="kategori" list="kategoriList" placeholder="Ketik atau pilih kategori..." required>
+        <datalist id="kategoriList">
+          </datalist>
 
         <!-- Upload gambar -->
         <label for="gambarUpload" class="upload-label">Upload Gambar Produk:</label>

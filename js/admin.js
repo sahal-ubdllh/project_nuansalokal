@@ -4,48 +4,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const gambarUpload = document.getElementById("gambarUpload");
   const produkListContainer = document.getElementById("adminProdukList");
   const filterSelect = document.getElementById("filterKategori");
-  const kategoriSelect = document.getElementById("kategoriSelect");
+  const kategoriDataList = document.getElementById("kategoriList"); // Disesuaikan untuk datalist
+  const API_URL = "http://localhost:3000";
 
-  let editId = null; // untuk mendeteksi mode edit
+  async function fetchCategories() {
+    try {
+      const response = await fetch(`${API_URL}/api/categories`);
+      if (!response.ok) throw new Error('Gagal mengambil data kategori.');
+      const kategoriList = await response.json();
 
-  /* =======================================================
-     1️⃣ AMBIL DAFTAR KATEGORI DARI HALAMAN UTAMA (index.html)
-  ======================================================= */
-  function ambilKategoriDariIndex() {
-    // Coba ambil dari localStorage dulu (kalau sudah disimpan sebelumnya)
-    let kategoriList = localStorage.getItem("kategoriList");
-    if (kategoriList) {
-      kategoriList = JSON.parse(kategoriList);
-    } else {
-      // fallback default
-      kategoriList = [
-        "Aksesoris",
-        "Kerajinan",
-        "Pakaian",
-        "Tas",
-        "Batik",
-        "Hijab",
-        "Kecantikan",
-        "Sandal",
-        "Makanan Lokal",
-        "Parfum",
-      ];
-      localStorage.setItem("kategoriList", JSON.stringify(kategoriList));
+      filterSelect.innerHTML = `<option value="Semua">Semua</option>`;
+      kategoriList.forEach((kategori) => {
+        filterSelect.innerHTML += `<option value="${kategori}">${kategori}</option>`;
+      });
+
+      kategoriDataList.innerHTML = '';
+      kategoriList.forEach((kategori) => {
+        kategoriDataList.innerHTML += `<option value="${kategori}"></option>`;
+      });
+
+    } catch (error) {
+      console.error("❌ Gagal mengambil kategori:", error);
     }
-
-    // isi dropdown tambah & filter kategori
-    kategoriSelect.innerHTML = `<option value="" disabled selected>Pilih kategori...</option>`;
-    filterSelect.innerHTML = `<option value="Semua">Semua</option>`;
-
-    kategoriList.forEach((kategori) => {
-      kategoriSelect.innerHTML += `<option value="${kategori}">${kategori}</option>`;
-      filterSelect.innerHTML += `<option value="${kategori}">${kategori}</option>`;
-    });
   }
 
-  /* =======================================================
-     2️⃣ PREVIEW GAMBAR
-  ======================================================= */
   gambarUpload.addEventListener("change", () => {
     const file = gambarUpload.files[0];
     if (file) {
@@ -55,190 +37,91 @@ document.addEventListener("DOMContentLoaded", () => {
         previewImage.style.display = "block";
       };
       reader.readAsDataURL(file);
-    } else {
-      previewImage.style.display = "none";
     }
   });
 
-  /* =======================================================
-     3️⃣ AMBIL & SIMPAN PRODUK
-  ======================================================= */
-  function ambilProduk() {
-    const data = localStorage.getItem("produkList");
+  async function renderProduk() {
     try {
-      return data ? JSON.parse(data) : [];
-    } catch (e) {
-      console.error("❌ Gagal parsing produkList:", e);
-      return [];
-    }
-  }
+      const selectedKategori = filterSelect.value;
+      const url = selectedKategori === 'Semua' 
+        ? `${API_URL}/api/products`
+        : `${API_URL}/api/products?category=${selectedKategori}`;
+        
+      const response = await fetch(url);
+      const dataTampil = await response.json();
+      
+      produkListContainer.innerHTML = "";
 
-  function simpanProduk(list) {
-    localStorage.setItem("produkList", JSON.stringify(list));
-  }
-
-  /* =======================================================
-     4️⃣ RENDER PRODUK
-  ======================================================= */
-  function renderProduk() {
-    const semuaProduk = ambilProduk();
-    const selectedKategori = filterSelect.value;
-    produkListContainer.innerHTML = "";
-
-    const dataTampil =
-      selectedKategori === "Semua"
-        ? semuaProduk
-        : semuaProduk.filter((p) => p.kategori === selectedKategori);
-
-    if (dataTampil.length === 0) {
-      produkListContainer.innerHTML = `<p style="text-align:center;color:#777;">Belum ada produk di kategori ini.</p>`;
-      return;
-    }
-
-    dataTampil.forEach((p) => {
-      const card = document.createElement("div");
-      card.classList.add("produk-item");
-      card.innerHTML = `
-        <img src="${p.gambar}" alt="${p.nama}" style="width:150px;height:150px;object-fit:cover;border-radius:10px;">
-        <h3>${p.nama}</h3>
-        <p><strong>Kategori:</strong> ${p.kategori}</p>
-        <p><strong>Harga:</strong> Rp ${Number(p.harga).toLocaleString("id-ID")}</p>
-        <p>${p.deskripsi || "-"}</p>
-        <button class="edit-btn" data-id="${p.id}">✏️ Edit</button>
-        <button class="hapus-btn" data-id="${p.id}">🗑️ Hapus</button>
-      `;
-      produkListContainer.appendChild(card);
-    });
-
-    // Tombol Edit
-    document.querySelectorAll(".edit-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const id = btn.dataset.id;
-        editProduk(id);
-      });
-    });
-
-    // Tombol Hapus
-    document.querySelectorAll(".hapus-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const id = btn.dataset.id;
-        hapusProduk(id);
-      });
-    });
-  }
-
-  /* =======================================================
-     5️⃣ TAMBAH / EDIT PRODUK
-  ======================================================= */
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const nama = form.nama.value.trim();
-    const harga = form.harga.value.trim();
-    const kategori = form.kategori.value;
-    const deskripsi = form.deskripsi.value.trim();
-    const gambarFile = form.gambar.files[0];
-
-    if (!nama || !harga || !kategori) {
-      alert("⚠️ Lengkapi semua data produk!");
-      return;
-    }
-
-    const produkList = ambilProduk();
-
-    if (editId) {
-      // ✏️ UPDATE PRODUK
-      const index = produkList.findIndex((p) => p.id === editId);
-      if (index !== -1) {
-        if (gambarFile) {
-          const reader = new FileReader();
-          reader.onload = () => {
-            produkList[index] = {
-              ...produkList[index],
-              nama,
-              harga: Number(harga),
-              kategori,
-              deskripsi,
-              gambar: reader.result,
-            };
-            simpanProduk(produkList);
-            selesaiEdit();
-          };
-          reader.readAsDataURL(gambarFile);
-        } else {
-          produkList[index] = {
-            ...produkList[index],
-            nama,
-            harga: Number(harga),
-            kategori,
-            deskripsi,
-          };
-          simpanProduk(produkList);
-          selesaiEdit();
-        }
+      if (dataTampil.length === 0) {
+        produkListContainer.innerHTML = `<p style="text-align:center;color:#777;">Belum ada produk di kategori ini.</p>`;
+        return;
       }
-    } else {
-      // ➕ TAMBAH PRODUK BARU
-      const reader = new FileReader();
-      reader.onload = () => {
-        const produkBaru = {
-          id: Date.now().toString(),
-          nama,
-          harga: Number(harga),
-          kategori,
-          deskripsi,
-          gambar: reader.result,
-        };
 
-        produkList.push(produkBaru);
-        simpanProduk(produkList);
-        alert("✅ Produk berhasil ditambahkan!");
-        form.reset();
-        previewImage.style.display = "none";
-        renderProduk();
-      };
-      reader.readAsDataURL(gambarFile);
+      dataTampil.forEach((p) => {
+        const card = document.createElement("div");
+        card.classList.add("produk-item");
+        card.innerHTML = `
+          <img src="${API_URL}/${p.gambar}" alt="${p.nama}" style="width:150px;height:150px;object-fit:cover;border-radius:8px;">
+          <h3>${p.nama}</h3>
+          <p><strong>Kategori:</strong> ${p.kategori}</p>
+          <p><strong>Harga:</strong> Rp ${p.harga.toLocaleString("id-ID")}</p>
+          <button class="hapus-btn" data-id="${p.id}">🗑️ Hapus</button>
+        `;
+        produkListContainer.appendChild(card);
+      });
+
+      document.querySelectorAll(".hapus-btn").forEach((btn) => {
+        btn.addEventListener("click", () => hapusProduk(btn.dataset.id));
+      });
+    } catch (error) {
+      console.error("❌ Gagal mengambil produk:", error);
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(`${API_URL}/api/products`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error("Gagal menyimpan produk.");
+
+      alert("✅ Produk berhasil ditambahkan!");
+      form.reset();
+      previewImage.style.display = "none";
+      
+      // 🔄 SINKRONISASI DATA SETELAH MENAMBAH PRODUK
+      await fetchCategories(); // 1. Ambil ulang daftar kategori terbaru
+      await renderProduk();    // 2. Tampilkan ulang daftar produk terbaru
+      
+    } catch (error) {
+      alert(`⚠️ Terjadi kesalahan: ${error.message}`);
     }
   });
 
-  function selesaiEdit() {
-    alert("✅ Produk berhasil diperbarui!");
-    form.reset();
-    previewImage.style.display = "none";
-    editId = null;
-    form.querySelector("button[type='submit']").textContent = "Simpan Produk";
-    renderProduk();
+  async function hapusProduk(id) {
+    if (confirm("Yakin ingin menghapus produk ini?")) {
+      try {
+        const response = await fetch(`${API_URL}/api/products/${id}`, {
+          method: "DELETE",
+        });
+        if (!response.ok) throw new Error("Gagal menghapus produk.");
+        
+        // 🔄 SINKRONISASI DATA SETELAH MENGHAPUS PRODUK
+        await fetchCategories(); // Update kategori (jika produk terakhir dari kategori itu dihapus)
+        await renderProduk();
+      } catch (error) {
+        alert(`⚠️ Terjadi kesalahan: ${error.message}`);
+      }
+    }
   }
 
-  function editProduk(id) {
-    const data = ambilProduk();
-    const produk = data.find((p) => p.id === id);
-    if (!produk) return;
-
-    editId = id;
-    form.nama.value = produk.nama;
-    form.harga.value = produk.harga;
-    form.kategori.value = produk.kategori;
-    form.deskripsi.value = produk.deskripsi || "";
-    previewImage.src = produk.gambar;
-    previewImage.style.display = "block";
-    form.querySelector("button[type='submit']").textContent = "Update Produk";
-  }
-
-  function hapusProduk(id) {
-    const data = ambilProduk().filter((p) => p.id !== id);
-    simpanProduk(data);
-    renderProduk();
-  }
-
-  /* =======================================================
-     6️⃣ FILTER KATEGORI
-  ======================================================= */
   filterSelect.addEventListener("change", renderProduk);
 
-  /* =======================================================
-     7️⃣ INISIALISASI SAAT PERTAMA
-  ======================================================= */
-  ambilKategoriDariIndex();
+  fetchCategories();
   renderProduk();
 });
