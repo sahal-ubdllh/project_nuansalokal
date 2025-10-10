@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "id": 1672531200000,
-      "nama": "Kemeja Batik Parang",
-      "harga": 250000,
-      "kategori": "Batik",
-      "deskripsi": "Kemeja batik klasik dengan motif parang, cocok untuk acara formal.",
-      "gambar": "uploads/default-batik.jpg"
-    },
-    {
       "id": 1760058595209,
       "nama": "Sepatu",
       "harga": 20000,
@@ -39,6 +31,22 @@
       "kategori": "Kecantikan",
       "deskripsi": "bagus",
       "gambar": "uploads/1760062590109.jpg"
+    },
+    {
+      "id": 1760111447957,
+      "nama": "Kemeja Batik Parang",
+      "harga": 250000,
+      "kategori": "Batik",
+      "deskripsi": "Kemeja batik klasik dengan motif parang, cocok untuk acara formal.",
+      "gambar": "uploads/1760111447930.jpeg"
+    },
+    {
+      "id": 1760111632402,
+      "nama": "Bakpia",
+      "harga": 25000,
+      "kategori": "Makanan",
+      "deskripsi": "Bakpia khas jogja",
+      "gambar": "uploads/1760111632400.png"
     }
   ],
   "reviews": {

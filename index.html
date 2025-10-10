@@ -36,7 +36,7 @@
       </div>
 
       <div class="icon-container">
-        <a href="./pages/cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
+        <a href="./cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
         <a href="./pages/message.html" class="message-icon"><i class="fa-solid fa-message"></i></a>
         <a href="./pages/profil.html" class="profile-icon"><i class="fas fa-user"></i></a>
       </div>
@@ -54,7 +54,7 @@
       </div>
 
       <div class="icon-container">
-        <a href="./pages/cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
+        <a href="./cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
         <a href="./pages/message.html" class="message-icon"><i class="fa-solid fa-message"></i></a>
       </div>
     </nav>
@@ -114,7 +114,7 @@
         <li><a href="#" class="kategori-item" data-kategori="Hijab"><img src="assets/kategori-image/kategori6.png" alt="">Hijab</a></li>
         <li><a href="#" class="kategori-item" data-kategori="Kecantikan"><img src="assets/kategori-image/kategori7.png" alt="">Kecantikan</a></li>
         <li><a href="#" class="kategori-item" data-kategori="Sandal"><img src="assets/kategori-image/kategori8.png" alt="">Sendal</a></li>
-        <li><a href="#" class="kategori-item" data-kategori="Makanan Lokal"><img src="assets/kategori-image/kategori9.png" alt="">Makanan Lokal</a></li>
+        <li><a href="#" class="kategori-item" data-kategori="Makanan"><img src="assets/kategori-image/kategori9.png" alt="">Makanan</a></li>
         <li><a href="#" class="kategori-item" data-kategori="Parfum"><img src="assets/kategori-image/kategori10.png" alt="">Parfum</a></li>
       </ul>
     </section>
@@ -124,6 +124,14 @@
         <div class="header-kategori">
           <h2>Kategori: <span id="judulKategori"></span></h2>
           <button id="resetKategoriBtn" class="btn-reset-kategori" type="button">Reset Kategori</button>
+        </div>
+        <div class="produk-list"></div>
+      </section>
+      
+      <section class="produk-kategori" id="hasil-pencarian" style="display:none;">
+        <div class="header-kategori">
+          <h2>Hasil Pencarian untuk: "<span id="searchTerm"></span>"</h2>
+          <button id="resetSearchBtn" class="btn-reset-kategori" type="button">Tutup Pencarian</button>
         </div>
         <div class="produk-list"></div>
       </section>
@@ -144,8 +152,48 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Nuansa Lokal. "2GB" Semua Hak Dilindungi.</p>
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <div class="footer-column about">
+        <h3 class="footer-logo">Nuansa Lokal</h3>
+        <p>Merayakan kekayaan budaya Indonesia dengan menghadirkan produk-produk lokal berkualitas langsung ke tangan Anda. Dukung pengrajin lokal, cintai produk Indonesia.</p>
+      </div>
+      
+      <div class="footer-column links">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#produk">Kategori</a></li>
+          <li><a href="#">Cara Pesan</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column contact">
+        <h4>Kontak Kami</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i><span>Jl. Kreatif No. 25, Yogyakarta, Indonesia</span></li>
+          <li><i class="fas fa-envelope"></i><span>dukungan@nuansalokal.id</span></li>
+          <li><i class="fas fa-phone"></i><span>(0274) 555-1234</span></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column social">
+        <h4>Ikuti Kami</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Nuansa Lokal. "2GB" Semua Hak Dilindungi.</p>
+    </div>
   </footer>
 
   <!-- ===== SCRIPT FILES ===== -->

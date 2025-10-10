@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Anda</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-wrapper">
+        <header class="top-header">
+            <a href="./index.html" class="back-arrow">&lt;</a>
+        </header>
+
+        <div class="content-container">
+            <div class="cart-left-panel">
+                <h1 class="page-title">Keranjang Anda!</h1>
+
+                <div class="address-card">
+                    <h3>Alamat Pengguna <span id="edit-address-btn" class="action-link">Edit</span></h3>
+                    <div id="current-address">
+                        <p class="address-text">Jl. Informatika No. 5, Kota Bandung, 40135</p>
+                    </div>
+                    <form id="edit-address-form" class="hidden">
+                        <textarea id="address-input" rows="3">Jl. Informatika No. 5, Kota Bandung, 40135</textarea>
+                        <button type="submit" id="save-address-btn" class="save-btn">Simpan Alamat</button>
+                    </form>
+                </div>
+
+                <div class="select-all-container">
+                    <input type="checkbox" id="select-all-checkbox">
+                    <label for="select-all-checkbox">Pilih Semua Item (3)</label> </div>
+
+                <div class="product-list" id="cart-items">
+                    <div class="product-item" data-id="1" data-price="35300">
+                        <div class="item-selection">
+                            <input type="checkbox" class="item-checkbox" checked>
+                        </div>
+                        <div class="item-image">Foto Produk</div>
+                        <div class="item-details">
+                            <p class="item-name">Baju kelelawar</p>
+                            <div class="item-meta">
+                                <span class="item-color">Warna: Coklat Muda</span>
+                                <div class="item-option-group">
+                                    <span class="option-label">Ukuran:</span>
+                                    <select class="product-size">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL" selected>XL</option>
+                                    </select>
+                                </div>
+                                <div class="item-option-group">
+                                    <span class="option-label">Jumlah:</span>
+                                    <div class="quantity-control">
+                                        <button class="qty-minus">-</button>
+                                        <input type="number" class="product-qty" value="3" min="1">
+                                        <button class="qty-plus">+</button>
+                                    </div>
+                                </div>
+                                <p class="item-price">Harga: <span class="price-value">35,3rb</span></p>
+                            </div>
+                            <div class="item-actions">
+                                <span class="hapus-item action-link">Hapus item</span>
+                                <span class="pindahkan-favorit action-link">Pindahkan ke favorit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item" data-id="2" data-price="50500">
+                        <div class="item-selection">
+                            <input type="checkbox" class="item-checkbox" checked>
+                        </div>
+                        <div class="item-image">Foto Produk</div>
+                        <div class="item-details">
+                            <p class="item-name">Baju blonde</p>
+                            <div class="item-meta">
+                                <span class="item-color">Warna: Biru tua</span>
+                                <div class="item-option-group">
+                                    <span class="option-label">Ukuran:</span>
+                                    <select class="product-size">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L" selected>L</option>
+                                        <option value="XL">XL</option>
+                                    </select>
+                                </div>
+                                <div class="item-option-group">
+                                    <span class="option-label">Jumlah:</span>
+                                    <div class="quantity-control">
+                                        <button class="qty-minus">-</button>
+                                        <input type="number" class="product-qty" value="1" min="1">
+                                        <button class="qty-plus">+</button>
+                                    </div>
+                                </div>
+                                <p class="item-price">Harga: <span class="price-value">50,5rb</span></p>
+                            </div>
+                            <div class="item-actions">
+                                <span class="hapus-item action-link">Hapus item</span>
+                                <span class="pindahkan-favorit action-link">Pindahkan ke favorit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item" data-id="3" data-price="50500">
+                        <div class="item-selection">
+                            <input type="checkbox" class="item-checkbox" checked>
+                        </div>
+                        <div class="item-image">Foto Produk</div>
+                        <div class="item-details">
+                            <p class="item-name">Baju sumpit gacoan</p>
+                            <div class="item-meta">
+                                <span class="item-color">Warna: Merah</span>
+                                <div class="item-option-group">
+                                    <span class="option-label">Ukuran:</span>
+                                    <select class="product-size">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L" selected>L</option>
+                                        <option value="XL">XL</option>
+                                    </select>
+                                </div>
+                                <div class="item-option-group">
+                                    <span class="option-label">Jumlah:</span>
+                                    <div class="quantity-control">
+                                        <button class="qty-minus">-</button>
+                                        <input type="number" class="product-qty" value="5" min="1">
+                                        <button class="qty-plus">+</button>
+                                    </div>
+                                </div>
+                                <p class="item-price">Harga: <span class="price-value">50,5rb</span></p>
+                            </div>
+                            <div class="item-actions">
+                                <span class="hapus-item action-link">Hapus item</span>
+                                <span class="pindahkan-favorit action-link">Pindahkan ke favorit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-info-footer">
+                    <div class="shipping-info-bubble">
+                        <span class="icon">📦</span> Gratis ongkir & pengembalian
+                    </div>
+                    <a href="#" class="help-link">Pusat bantuan</a>
+                </div>
+            </div>
+
+            <div class="summary-right-panel">
+                <h2 class="summary-title">Ringkasan</h2>
+                <div class="summary-row">
+                    <p>Total produk</p>
+                    <p id="subtotal-display">Rp 0</p>
+                </div>
+                <div class="summary-row">
+                    <p>Biaya pengiriman</p>
+                    <p id="shipping-cost-display">Gratis</p>
+                </div>
+
+                <p id="promo-link" class="promo-toggle-link action-link">Tambahkan kode promo</p>
+                <form id="promo-form" class="hidden promo-input-group">
+                    <input type="text" id="promo-code-input" placeholder="Masukkan kode promo (cth: 3D1CGY)">
+                    <button type="submit" id="apply-promo-btn" class="promo-apply-btn">Terapkan</button>
+                </form>
+                
+                <hr class="summary-divider">
+
+                <div class="summary-total">
+                    <p>Total:</p>
+                    <p id="final-total-display">Rp 0</p>
+                </div>
+
+                <button id="checkout-btn" class="checkout-button">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal-overlay hidden">
+        <div class="modal-content" id="payment-modal-content">
+            <h3 class="modal-title">Pilih Metode Pembayaran</h3>
+            <div class="modal-total-display">Total: <span id="modal-total-display">Rp 0</span></div>
+            
+            <div class="payment-selection-panel" id="main-payment-options">
+                <button class="payment-option-btn" data-method="bank">Bank Transfer</button>
+                <button class="payment-option-btn" data-method="ewallet">E-Wallet</button>
+                <button class="payment-option-btn" data-method="minimarket">Alfamart / Indomaret</button>
+                <button class="payment-option-btn" data-method="cod">Cash On Delivery (COD)</button>
+            </div>
+            
+            <div class="payment-selection-panel hidden" id="detail-payment-options">
+                <p class="back-nav-link action-link" id="back-to-main-options">&lt; Kembali</p>
+                <h4 class="detail-option-title" id="detail-option-title">Pilih Bank</h4>
+            </div>
+            
+            <div class="payment-final-info-panel hidden" id="final-payment-info">
+                <h4 class="final-method-title" id="final-payment-method">Transfer Bank BRI</h4>
+                <p>Silakan lakukan pembayaran sebesar <span class="final-amount">Rp 0</span> ke:</p>
+                <p class="payment-code" id="payment-code">9876543210 (BRI)</p>
+                <button id="confirm-payment-btn" class="confirm-payment-btn">Pembayaran Selesai!</button>
+                <p class="back-nav-link action-link" id="back-to-detail-options">&lt; Ganti Metode</p>
+            </div>
+
+            <button id="close-modal" class="modal-close-btn">Kembali ke Keranjang</button>
+        </div>
+    </div>
+    
+    <div id="custom-alert-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 class="modal-title" id="alert-title">Notifikasi</h3>
+            <p id="alert-message">Pesan Anda di sini.</p>
+            <button id="close-alert-btn" class="modal-confirm-btn">OK</button>
+        </div>
+    </div>
+    
+    <script src="./js/cart.js"></script>
+</body>
+</html>
