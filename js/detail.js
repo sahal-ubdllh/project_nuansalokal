@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
   const container = document.querySelector(".detail-container");
-  const API_URL = "http://localhost:3001";
+  const API_URL = "";
   
   if (!productId) {
     container.innerHTML = "<p style='text-align:center;'>❌ ID Produk tidak valid.</p>";

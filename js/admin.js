@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterSelect = document.getElementById("filterKategori");
     const kategoriDataList = document.getElementById("kategoriList");
     const submitButton = form.querySelector('button[type="submit"]');
-    const API_URL = "http://localhost:3001";
+    const API_URL = "";
 
     let editId = null;
 

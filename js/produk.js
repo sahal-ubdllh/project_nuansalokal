@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchTermSpan = document.getElementById("searchTerm");
   const resetSearchBtn = document.getElementById("resetSearchBtn");
 
-  const API_URL = "http://localhost:3001";
+  const API_URL = "";
 
   // === 2. Fungsi Helper untuk Merender Kartu Produk ===
   const renderGrid = (container, list) => { /* ... (fungsi ini tidak berubah) ... */ };
