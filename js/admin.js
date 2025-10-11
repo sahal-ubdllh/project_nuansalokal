@@ -49,9 +49,19 @@ document.addEventListener("DOMContentLoaded", () => {
     async function renderProduk() {
         try {
             const selectedKategori = filterSelect.value;
-            const url = selectedKategori === 'Semua' ? `${API_URL}/api/products` : `${API_URL}/api/products?category=${selectedKategori}`;
-            const response = await fetch(url);
-            const dataTampil = await response.json();
+            
+            // Buat query dasar ke Supabase
+            let query = supabase.from('products').select('*');
+
+            // Jika ada filter kategori yang dipilih (selain "Semua")
+            if (selectedKategori !== 'Semua') {
+                query = query.eq('kategori', selectedKategori);
+            }
+
+            // Jalankan query dan ambil datanya
+            const { data: dataTampil, error } = await query;
+
+            if (error) throw error;
             produkListContainer.innerHTML = "";
 
             if (dataTampil.length === 0) {
