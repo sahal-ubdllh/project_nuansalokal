@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulasan Pengguna</title>
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/ulasan.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <a href="../pages/about.html" class="back-arrow"><i class="fas fa-chevron-left"></i></a>
+        <div class="header-content">
+            <h1>Ulasan dari Pengguna</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="review-form-section">
+            <h2>Berikan Ulasan Anda</h2>
+            <form id="reviewForm" class="review-form">
+                <div class="form-group">
+                    <label for="nama">Nama Anda:</label>
+                    <input type="text" id="nama" name="nama" placeholder="Contoh: Ahmad atau Pengguna Anonim" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating (Bintang 1-5):</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">⭐⭐⭐⭐⭐ Sangat Baik</option>
+                        <option value="4">⭐⭐⭐⭐ Baik</option>
+                        <option value="3">⭐⭐⭐ Cukup</option>
+                        <option value="2">⭐⭐ Kurang</option>
+                        <option value="1">⭐ Buruk</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ulasan">Komentar Ulasan:</label>
+                    <textarea id="ulasan" name="ulasan" rows="5" placeholder="Tuliskan pengalaman dan opini Anda di sini..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Kirim Ulasan</button>
+            </form>
+        </section>
+
+        <hr class="divider">
+
+        <section class="reviews-display-section">
+            <h2>Ulasan Terbaru</h2>
+            
+            <div id="reviews-list" class="reviews-grid">
+                
+                <article class="review-card">
+                    <div class="review-header">
+                        <span class="user-initials">SA</span>
+                        <div class="user-info">
+                            <p class="user-name">Sahabat Abdullah</p>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="review-text">Tampilan yang bagus dan responsif! Sangat mudah digunakan, desainnya juga profesional dengan warna biru yang menenangkan.</p>
+                </article>
+
+                <article class="review-card accent-card">
+                    <div class="review-header">
+                        <span class="user-initials">UB</span>
+                        <div class="user-info">
+                            <p class="user-name">Umi Bestari</p>
+                            <span class="review-rating">⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="review-text">Sangat terbantu! Hanya saja, mungkin perlu sedikit penambahan fitur lain. Warna kuning/kucingnya memberi kesan ceria.</p>
+                </article>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            // 1. Ambil Nilai dari Formulir
+            const namaInput = document.getElementById('nama').value.trim();
+            const ulasanInput = document.getElementById('ulasan').value.trim();
+            const ratingSelect = document.getElementById('rating');
+            
+            // Dapatkan nama dan rating
+            const nama = namaInput || 'Pengguna Anonim';
+            const ratingText = ratingSelect.options[ratingSelect.selectedIndex].text.split(' ')[0]; // Contoh: "⭐⭐⭐⭐⭐"
+            
+            // 2. Buat Elemen Kartu Ulasan Baru
+            const newReviewCard = document.createElement('article');
+            newReviewCard.classList.add('review-card');
+            
+            // Tentukan inisial (Ambil 2 huruf pertama dari nama)
+            const initials = nama.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2) || 'AN';
+
+            // Struktur HTML untuk kartu baru
+            newReviewCard.innerHTML = `
+                <div class="review-header">
+                    <span class="user-initials">${initials}</span>
+                    <div class="user-info">
+                        <p class="user-name">${nama}</p>
+                        <span class="review-rating">${ratingText}</span>
+                    </div>
+                </div>
+                <p class="review-text">${ulasanInput}</p>
+            `;
+
+            // 3. Sisipkan Kartu Baru ke Daftar Ulasan
+            const reviewsList = document.getElementById('reviews-list');
+            // Menggunakan .prepend() untuk menempatkan ulasan baru di PALING ATAS
+            reviewsList.prepend(newReviewCard); 
+
+            // 4. Bersihkan Formulir Setelah Berhasil
+            document.getElementById('reviewForm').reset();
+            alert('Ulasan Anda berhasil dikirim dan ditampilkan di bagian "Ulasan Terbaru"!');
+        });
+    </script>
+</body>
+</html>

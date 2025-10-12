@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Saya</title>
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/orders-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-left">
+            <a href="../index.html" class="nav-icon back-arrow"><i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="navbar-center">
+            <h1>Pesanan Saya</h1>
+        </div>
+        <div class="navbar-right">
+            <button class="nav-icon chat-icon" id="chat-btn"><i class="fas fa-comment-dots"></i></button>
+        </div>
+    </header>
+
+    <nav class="order-tabs">
+        <button class="tab-btn active" data-status="belum_bayar">Belum Bayar</button>
+        <button class="tab-btn" data-status="dikemas">Dikemas</button>
+        <button class="tab-btn" data-status="dikirim">Dikirim</button>
+        <button class="tab-btn" data-status="selesai">Selesai</button>
+    </nav>
+
+    <main class="orders-container">
+        
+        <div class="order-content" id="belum_bayar">
+            <div class="order-card status-belum-bayar">
+                <div class="store-info">
+                    <span class="badge red">Nuansa Mall</span>
+                    <strong>2GB Store</strong>
+                    <span class="status-text red">Belum Bayar</span>
+                </div>
+                <div class="product-item">
+                    <div class="product-thumb">Foto Produk</div>
+                    <div class="product-details">
+                        <p class="name">Kebaya Songket Modern</p>
+                        <p class="motive">Motif Bunga</p>
+                        <p class="price-old">Rp 31.000</p>
+                    </div>
+                    <div class="product-qty">
+                        <span class="qty">x1</span>
+                        <p class="price-new">Rp 27.000</p>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <span>1 produk</span>
+                    <span>Total pesanan:</span>
+                </div>
+                <div class="status-update-row">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Pesanan belum dibayar</span>
+                    <div class="actions">
+                        <button class="action-btn red-btn" id="bayar-sekarang-btn">Bayar sekarang</button>
+                        <button class="action-btn default-btn hubungi-penjual-btn">Hubungi Penjual</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-content hidden" id="dikemas">
+             <div class="order-card status-dikemas">
+                <div class="store-info">
+                    <span class="badge red">Nuansa Mall</span>
+                    <strong>2GB Store</strong>
+                    <span class="status-text red">Sedang Dikemas</span>
+                </div>
+                <div class="product-item">
+                    <div class="product-thumb">Foto Produk</div>
+                    <div class="product-details">
+                        <p class="name">Kebaya Songket Modern</p>
+                        <p class="motive">Motif Bunga</p>
+                        <p class="price-old">Rp 31.000</p>
+                    </div>
+                    <div class="product-qty">
+                        <span class="qty">x1</span>
+                        <p class="price-new">Rp 27.000</p>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <span>1 produk</span>
+                    <span>Total pesanan:</span>
+                </div>
+                <div class="status-update-row">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span class="track-detail-link" id="pengaturan-pengiriman-link">Pengirim telah mengatur pengiriman. Menunggu paket diserahkan ke jasa kirim.</span>
+                    <div class="actions">
+                        <button class="action-btn default-btn hubungi-penjual-btn">Hubungi Penjual</button>
+                    </div>
+                    <p class="delivery-info">Produk akan dikirim paling lambat 18-11-2025. Menunggu paket diserahkan ke jasa kirim.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-content hidden" id="dikirim">
+            <div class="order-card status-dikirim">
+                <div class="store-info">
+                    <span class="badge red">Nuansa Mall</span>
+                    <strong>2GB Store</strong>
+                    <span class="status-text red">Dikirim</span>
+                </div>
+                <div class="product-item">
+                    <div class="product-thumb">Foto Produk</div>
+                    <div class="product-details">
+                        <p class="name">Kebaya Songket Modern</p>
+                        <p class="motive">Motif Bunga</p>
+                        <p class="price-old">Rp 31.000</p>
+                    </div>
+                    <div class="product-qty">
+                        <span class="qty">x1</span>
+                        <p class="price-new">Rp 27.000</p>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <span>1 produk</span>
+                    <span>Total pesanan:</span>
+                </div>
+                <div class="status-update-row">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Pesanan telah disortir di Kab.Majalengka, Cikijing Hub.</span>
+                    <div class="actions">
+                        <button class="action-btn red-btn" id="lacak-pesanan-btn">Lacak Pesanan</button>
+                        <button class="action-btn default-btn hubungi-penjual-btn">Hubungi Penjual</button>
+                    </div>
+                    <p class="delivery-info">Pesanan diperkirakan sampai 5-7 Juli.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-content hidden" id="selesai">
+            <div class="order-card status-selesai">
+                <div class="store-info">
+                    <span class="badge red">Nuansa Mall</span>
+                    <strong>2GB Store</strong>
+                    <span class="status-text red">Selesai</span>
+                </div>
+                <div class="product-item">
+                    <div class="product-thumb">Foto Produk</div>
+                    <div class="product-details">
+                        <p class="name">Kebaya Songket Modern</p>
+                        <p class="motive">Motif Bunga</p>
+                        <p class="price-old">Rp 31.000</p>
+                    </div>
+                    <div class="product-qty">
+                        <span class="qty">x1</span>
+                        <p class="price-new">Rp 27.000</p>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <span>1 produk</span>
+                    <span>Total pesanan:</span>
+                </div>
+                <div class="status-update-row">
+                    <i class="fas fa-check-circle green-icon"></i>
+                    <span>Pesanan tiba dialamat tujuan. diterima oleh Yang bersangkutan.</span>
+                    <button class="link-btn" id="lihat-bukti-btn">Lihat Bukti Pengiriman</button>
+                    <div class="actions">
+                        <button class="action-btn red-btn" id="riwayat-pesanan-btn">Riwayat Pesanan</button>
+                        <button class="action-btn default-btn hubungi-penjual-btn">Hubungi Penjual</button>
+                    </div>
+                    <p class="delivery-info">Produk akan dikirim paling lambat 18-11-2025. Menunggu paket diserahkan ke jasa kirim.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="payment-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Pilih Metode Pembayaran</h2>
+            <div class="payment-options">
+                <button class="payment-type-btn" data-type="bank"><i class="fas fa-university"></i> Transfer Bank</button>
+                <button class="payment-type-btn" data-type="ewallet"><i class="fas fa-wallet"></i> E-Wallet</button>
+                <button class="payment-type-btn" data-type="alfamart"><i class="fas fa-store"></i> Alfamart/Indomaret</button>
+            </div>
+            
+            <div class="payment-details hidden" id="bank-options">
+                <h3>Pilih Bank</h3>
+                <button class="bank-select-btn" data-bank="BRI">Bank BRI</button>
+                <button class="bank-select-btn" data-bank="BJB">Bank BJB</button>
+                <button class="bank-select-btn" data-bank="Mandiri">Bank Mandiri</button>
+                <button class="bank-select-btn" data-bank="Lainnya">Bank Lainnya</button>
+            </div>
+
+            <div class="payment-details hidden" id="ewallet-options">
+                <h3>Pilih E-Wallet</h3>
+                <button class="ewallet-select-btn" data-ewallet="DANA">DANA</button>
+                <button class="ewallet-select-btn" data-ewallet="GOPAY">GOPAY</button>
+                <button class="ewallet-select-btn" data-ewallet="SHOPEEPAY">SHOPEEPAY</button>
+                <button class="ewallet-select-btn" data-ewallet="Lainnya">E-Wallet Lain</button>
+            </div>
+
+            <div class="payment-details hidden" id="alfamart-options">
+                <h3>Pilih Gerai</h3>
+                <button class="gerai-select-btn" data-gerai="Alfamart">Alfamart</button>
+                <button class="gerai-select-btn" data-gerai="Indomaret">Indomaret</button>
+            </div>
+
+            <div class="payment-confirmation hidden" id="confirm-payment-section">
+                <h4>Total Bayar: Rp 27.000</h4>
+                <p id="payment-method-display"></p>
+                <input type="text" id="pin-input" placeholder="Masukkan PIN/Nomor Rekening" required>
+                <button class="action-btn red-btn" id="final-bayar-btn">Bayar Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tracking-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn tracking-close-btn">&times;</span>
+            <h2>Lacak Pesanan</h2>
+            <div id="tracking-details">
+                </div>
+        </div>
+    </div>
+
+    <div id="bukti-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn bukti-close-btn">&times;</span>
+            <h2>Bukti Pengiriman</h2>
+            <img src="Kurir-JNE.jpg" alt="Kurir menyerahkan paket" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px;">Pesanan diterima oleh Yang bersangkutan.</p>
+        </div>
+    </div>
+
+
+    <div id="custom-alert-modal" class="modal hidden">
+        <div class="modal-content small-modal">
+            <span class="close-btn custom-alert-close">&times;</span>
+            <h3 id="custom-alert-title">Notifikasi</h3>
+            <p id="custom-alert-message" style="margin-bottom: 20px; text-align: center;"></p>
+            <button id="custom-alert-ok-btn" class="action-btn blue-btn" style="width: 100%;">OK</button>
+        </div>
+    </div>
+    <script src="../js/order.js"></script>
+</body>
+</html>

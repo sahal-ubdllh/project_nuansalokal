@@ -1,0 +1,423 @@
+/* RESET DAN GLOBAL STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* NAVBAR STYLE */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff; /* Warna putih */
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-center h1 {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.nav-icon {
+    color: #333;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 15px;
+}
+
+/* TAB NAVIGASI */
+.order-tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 55px; /* Sesuaikan dengan tinggi navbar */
+    z-index: 900;
+}
+
+.tab-btn {
+    flex-grow: 1;
+    padding: 15px 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #555;
+    position: relative;
+}
+
+.tab-btn.active {
+    color: #e74c3c; /* Merah untuk aktif */
+    font-weight: bold;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+/* KONTEN PESANAN */
+.orders-container {
+    padding: 15px;
+}
+
+.order-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.store-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: white;
+}
+
+.badge.red {
+    background-color: #e74c3c;
+}
+
+.status-text {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.status-text.red {
+    color: #e74c3c;
+}
+
+.status-text.green {
+    color: #2ecc71;
+}
+
+/* ITEM PRODUK */
+.product-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.product-thumb {
+    width: 60px;
+    height: 60px;
+    background-color: #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    color: #666;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.product-details .name {
+    font-weight: 500;
+}
+
+.product-details .motive {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.product-qty {
+    text-align: right;
+}
+
+.product-qty .price-old {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.9em;
+}
+
+.product-qty .price-new {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* RINGKASAN & STATUS */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.status-update-row {
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.status-update-row i {
+    color: #3498db;
+    font-size: 1.1em;
+}
+
+.status-update-row .green-icon {
+    color: #2ecc71;
+}
+
+.status-update-row span {
+    flex-grow: 1;
+}
+
+.status-update-row .actions {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.action-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    border: 1px solid transparent;
+}
+
+.red-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.default-btn {
+    background-color: white;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+.delivery-info {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.link-btn, .track-detail-link {
+    background: none;
+    border: none;
+    color: #3498db;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 0;
+    font-weight: 500;
+}
+
+/* MODAL / POP-UP */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content h2, .modal-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.payment-options, .payment-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.payment-type-btn, .bank-select-btn, .ewallet-select-btn, .gerai-select-btn {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    flex-grow: 1;
+    font-size: 0.9em;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.payment-type-btn i {
+    margin-right: 5px;
+}
+
+.payment-type-btn:hover, .bank-select-btn:hover, .ewallet-select-btn:hover, .gerai-select-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.payment-details.active button.selected {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.payment-confirmation {
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+#pin-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#final-bayar-btn {
+    width: 100%;
+    padding: 12px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Lacak Pesanan Detail Styling */
+#tracking-details {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.tracking-event {
+    border-left: 2px solid #ccc;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.tracking-event:last-child {
+    border-left: none;
+    padding-bottom: 0;
+}
+
+.tracking-event::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #3498db;
+    border-radius: 50%;
+    position: absolute;
+    left: -6px;
+    top: 0;
+}
+
+.tracking-event:first-child::before {
+    background-color: #2ecc71; /* Status terbaru */
+}
+
+.tracking-event p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
+.tracking-event .time {
+    font-size: 0.8em;
+    color: #999;
+    
+}
+/* --- STYLE TAMBAHAN UNTUK NOTIFIKASI KUSTOM --- */
+
+.modal-content.small-modal {
+    max-width: 300px; /* Ukuran yang lebih kecil untuk notifikasi */
+    padding: 25px 20px 15px; /* Padding disesuaikan */
+    text-align: center;
+}
+
+#custom-alert-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: none;
+}
+
+.custom-alert-close {
+    /* Sembunyikan tombol close bawaan untuk alert */
+    display: none !important; 
+}
+
+/* Modifikasi tombol OK */
+#custom-alert-ok-btn {
+    background-color: #3498db;
+    color: white;
+    font-size: 1em;
+    padding: 10px;
+}

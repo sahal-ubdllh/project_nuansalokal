@@ -280,6 +280,21 @@ main {
 .ulasan-item h4 { font-size: 1rem; color: var(--primary-color); }
 .ulasan-item p { font-size: 0.9rem; color: #555; }
 
+
+.produk-item .rating-info {
+  margin-bottom: 10px; /* Jarak ke harga */
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  min-height: 20px; /* Beri tinggi agar layout stabil */
+}
+
+.produk-item .rating-text {
+  margin-left: 5px;
+}
+
+
 /* Form ulasan */
 .form-ulasan { margin-top: 30px; display: flex; flex-direction: column; gap: 10px; }
 .form-ulasan textarea {
@@ -386,40 +401,92 @@ main {
 
 
 /* =======================================================
-   STYLE UNTUK HALAMAN ADMIN
+   STYLE UNTUK DAFTAR PRODUK ADMIN (BARU)
 ======================================================= */
 
-/* Kontainer utama */
-.admin-container {
-  width: 90%;
-  max-width: 900px; /* Batasi lebar agar tidak terlalu besar di layar lebar */
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+/* 1. Mengatur kontainer utama menjadi grid */
+#adminProdukList {
+  display: grid;
+  /* Membuat kolom-kolom yang responsif, minimal 220px */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px; /* Jarak antar kartu produk */
+  margin-top: 25px;
 }
 
-.admin-header h1 {
-  text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  border-bottom: 3px solid var(--secondary-color);
-  padding-bottom: 10px;
-}
-
-/* Kotak untuk form dan daftar produk */
-.form-section, .list-section {
+/* 2. Menata gaya setiap kartu produk di admin */
+.produk-item-admin {
   background-color: #fff;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Menyusun elemen (gambar, info, tombol) secara vertikal */
 }
 
-.form-section h2, .list-section h2 {
-  margin-top: 0;
-  margin-bottom: 25px;
-  color: var(--primary-color);
+.produk-item-admin:hover {
+  transform: translateY(-5px); /* Efek mengangkat saat disentuh cursor */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
+
+/* 3. Menata gambar produk di dalam kartu */
+.produk-item-admin img {
+  width: 100%;
+  height: 180px; 
+  object-fit: cover; 
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* 4. Menata area informasi (nama, harga, kategori) */
+.produk-item-admin .info {
+  flex-grow: 1; 
+}
+
+.produk-item-admin .info h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.produk-item-admin .info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 5px 0;
+}
+
+/* 5. Menata area tombol aksi (Edit & Hapus) */
+.produk-item-admin .actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px; /* Jarak dari info produk */
+}
+
+.produk-item-admin .actions button {
+  flex: 1; /* Membuat kedua tombol memiliki lebar yang sama */
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Gaya spesifik untuk tombol Edit */
+.produk-item-admin .actions .edit-btn {
+  background-color: var(--secondary-color); /* Kuning */
+  color: var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Gaya spesifik untuk tombol Hapus */
+.produk-item-admin .actions .hapus-btn {
+  background-color: #e74c3c; /* Merah */
+  color: white;
+  border-color: #e74c3c;
+}
+
 
 /* Tata letak form utama menggunakan Grid */
 #produkForm {
@@ -499,15 +566,15 @@ main {
 
 /* --- Layout Utama --- */
 .main-wrapper {
-    max-width: 1440px; /* Lebar maksimum seperti Figma */
+    max-width: 1440px; 
     margin: 0 auto;
-    background-color: #FFFFFF; /* Latar belakang putih untuk kontainer utama */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Sedikit shadow */
+    background-color: #FFFFFF; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
 }
 
 /* Header Panah Kembali */
 .top-header {
-    padding: 20px 40px; /* Padding samping yang lebih besar */
+    padding: 20px 40px; 
     border-bottom: 1px solid #E0E0E0;
 }
 
@@ -527,17 +594,17 @@ main {
 
 .cart-left-panel {
     flex: 2;
-    padding-right: 20px; /* Jarak dari panel ringkasan */
+    padding-right: 20px; 
     border-right: 1px solid #E0E0E0; /* Pemisah visual */
 }
 
 .summary-right-panel {
     flex: 1;
     min-width: 300px;
-    background-color: #FFFFFF; /* Latar belakang putih untuk ringkasan */
-    padding: 20px; /* Padding ringkasan */
-    border-radius: 8px; /* Sudut membulat */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sedikit shadow */
+    background-color: #FFFFFF; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
 }
 
 .page-title {
@@ -574,12 +641,12 @@ main {
 }
 
 #edit-address-form textarea {
-    width: calc(100% - 22px); /* Penyesuaian lebar untuk padding */
+    width: calc(100% - 22px); 
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
-    resize: vertical; /* Hanya bisa resize vertikal */
+    resize: vertical; 
     font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
@@ -672,7 +739,7 @@ main {
 }
 
 .item-name {
-    grid-column: 1 / 5; /* Nama produk membentang di semua kolom */
+    grid-column: 1 / 5; 
     font-size: 15px;
     font-weight: 600;
     margin-top: 0;
@@ -681,8 +748,8 @@ main {
 }
 
 .item-meta {
-    grid-column: 1 / 5; /* Metadata lain di bawah nama */
-    display: contents; /* Agar anak-anaknya menempati grid langsung */
+    grid-column: 1 / 5; 
+    display: contents; 
 }
 
 .item-color {
@@ -800,8 +867,8 @@ main {
 }
 
 .shipping-info-bubble {
-    background-color: #E8F5E9; /* Hijau muda */
-    color: #4CAF50; /* Hijau tua */
+    background-color: #E8F5E9; 
+    color: #4CAF50; 
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 13px;
@@ -917,13 +984,13 @@ main {
 
 .checkout-button {
     width: 100%;
-    background-color: #FFC107; /* Kuning sesuai desain */
+    background-color: #FFC107; 
     color: #333333;
     border: none;
     padding: 15px 20px;
     font-size: 18px;
     font-weight: 700;
-    border-radius: 8px; /* Sudut lebih membulat */
+    border-radius: 8px; 
     cursor: pointer;
     transition: background-color 0.2s, opacity 0.2s;
 }
@@ -944,7 +1011,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Lebih gelap */
+    background-color: rgba(0, 0, 0, 0.6); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1052,7 +1119,7 @@ main {
     border-radius: 6px;
     margin: 15px 0;
     text-align: center;
-    word-break: break-all; /* Agar kode panjang tidak keluar wadah */
+    word-break: break-all; 
 }
 
 .final-amount {
@@ -1063,7 +1130,7 @@ main {
 
 .confirm-payment-btn {
     width: 100%;
-    background-color: #4CAF50; /* Hijau */
+    background-color: #4CAF50; 
     color: white;
     border: none;
     padding: 15px 20px;
@@ -1106,7 +1173,7 @@ main {
     .cart-left-panel {
         padding-right: 0;
         border-right: none;
-        border-bottom: 1px solid #E0E0E0; /* Pemisah di bawah */
+        border-bottom: 1px solid #E0E0E0; 
         padding-bottom: 20px;
         margin-bottom: 20px;
     }
@@ -1166,19 +1233,19 @@ main {
    FOOTER BARU
 ======================================================= */
 .site-footer {
-  background-color: var(--primary-color); /* Warna latar belakang gelap */
-  color: #bbb; /* Warna teks abu-abu terang */
+  background-color: var(--primary-color);
+  color: #bbb; 
   padding: 40px 0;
   font-size: 0.9rem;
   margin-top: 60px;
-  border-top: 5px solid var(--secondary-color); /* Garis aksen kuning */
+  border-top: 5px solid var(--secondary-color); 
 }
 
 .footer-container {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Layout grid responsif */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
   gap: 30px;
 }
 
@@ -1264,22 +1331,66 @@ main {
    RESPONSIVE
 ======================================================= */
 @media (max-width: 768px) {
-  .desktop-header { display: none; }
-  .mobile-header { display: flex; }
-  div.navbar-bottom { display: flex; }
-  .search-bar { width: 250px; }
+  .desktop-header { 
+    display: none; 
+  }
+  .mobile-header { 
+    display: flex; 
+  }
+
+  .mobile-header .nav-container {
+    gap: 15px;
+    align-items: center;
+  }
+
+  .mobile-header .search-bar {
+    flex-grow: 1;
+    width: auto;
+  }
+
+  .mobile-header .logo,
+  .mobile-header .icon-container {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  div.navbar-bottom { 
+    display: flex; 
+  }
+  .search-bar { 
+    width: 250px; 
+  }
   .banner-slider { height: 209px; }
   .left-banner img { height: 100px; }
 
-  .kategori-list { grid-template-columns: repeat(3, 1fr); }
-  .kategori-list li:nth-child(n+7) { display: none; }
+  .kategori-list { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+  .kategori-list li:nth-child(n+7) { 
+    display: none; 
+  }
 
   /* Grid produk mengecil agar pas di mobile */
-  .produk-list { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .produk-list { 
+    grid-template-columns: repeat(2, 1fr); gap: 12px; 
+  }
+
+  .left-banner {
+    display: none;
+  }
+  .banner-shop {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 530px) {
-  .search-bar { width: 180px; }
-  .kategori-list { grid-template-columns: repeat(2, 1fr); }
-  .produk-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .search-bar { 
+    width: 180px; 
+  }
+  .kategori-list { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .produk-list { 
+    grid-template-columns: repeat(2, 1fr); gap: 10px; 
+  }
+  
 }

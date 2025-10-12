@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 5. LOGIKA KODE PROMO ---
     promoLink.addEventListener('click', (e) => {
         e.preventDefault();
-        // Toggle promo form
+        
         promoForm.classList.toggle('hidden'); 
         if (!promoForm.classList.contains('hidden')) {
             promoCodeInput.focus();
@@ -241,8 +241,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         promoCodeInput.value = '';
-        promoForm.classList.add('hidden'); // Sembunyikan form setelah apply
-        promoLink.textContent = 'Tambahkan kode promo'; // Kembalikan teks link
+        promoForm.classList.add('hidden'); 
+        promoLink.textContent = 'Tambahkan kode promo'; 
         updateCartTotal();
     });
 
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Aksi Klik Opsi Pembayaran Utama (Level 1)
     mainPaymentOptions.addEventListener('click', (e) => {
-        const button = e.target.closest('.payment-option-btn'); // Selektor disesuaikan
+        const button = e.target.closest('.payment-option-btn'); 
         if (!button) return;
         
         const method = button.dataset.method;
@@ -287,13 +287,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = method === 'bank' ? 'Pilih Bank Tujuan' : (method === 'ewallet' ? 'Pilih E-Wallet' : 'Pilih Minimarket');
             detailOptionTitle.textContent = title;
             
-            // Render opsi detail dari data
+            
             const detailOptions = paymentOptionsData[method];
             const detailOptionsHtml = detailOptions.map(option => 
                 `<button class="payment-option-btn detail-option" data-code="${option.code}" data-name="${option.name}">${option.name}</button>`
             ).join('');
             
-            // Tambahkan tombol kembali jika belum ada, atau pastikan itu di paling atas
+            
             const existingBackLink = detailPaymentOptions.querySelector('#back-to-main-options');
             if (existingBackLink) {
                 existingBackLink.nextElementSibling.insertAdjacentHTML('afterend', detailOptionsHtml);
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Aksi Klik Opsi Pembayaran Detail (Level 2)
+    // Aksi Klik Opsi Pembayaran Detail 
     detailPaymentOptions.addEventListener('click', (e) => {
         const button = e.target.closest('.detail-option'); // Selektor disesuaikan
         if (!button) return;
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
         goToFinalPayment(name, code, 'KONFIRMASI PEMBAYARAN');
     });
 
-    // Aksi Kembali dari Detail ke Utama (Level 2 ke 1)
+    // Aksi Kembali dari Detail ke Utama
     detailPaymentOptions.addEventListener('click', (e) => {
          if (e.target.id === 'back-to-main-options') {
             mainPaymentOptions.classList.remove('hidden');
@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fungsi untuk menampilkan Konfirmasi Pembayaran (Level 3)
+    // Fungsi untuk menampilkan Konfirmasi Pembayaran 
     const goToFinalPayment = (methodName, codeOrMessage, buttonText) => {
         detailPaymentOptions.classList.add('hidden');
         mainPaymentOptions.classList.add('hidden');
@@ -335,21 +335,17 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmPaymentBtn.textContent = buttonText;
     };
     
-    // Aksi Selesai Pembayaran (Level 3)
+    // Aksi Selesai Pembayaran 
     confirmPaymentBtn.addEventListener('click', () => {
         paymentModal.classList.add('hidden');
         showCustomAlert(`✅ Pembayaran untuk ${finalTotalDisplay.textContent} berhasil (Simulasi)! Barang siap dikirim. Terima kasih!`);
         // Di sini Anda bisa menambahkan logika untuk mengosongkan keranjang atau mengarahkan ke halaman sukses.
     });
     
-    // Aksi Kembali dari Final ke Detail (Level 3 ke 2)
+    // Aksi Kembali dari Final ke Detail 
     backToDetailBtn.addEventListener('click', () => {
         finalPaymentInfo.classList.add('hidden');
-        // Tentukan apakah kembali ke main options atau detail options sebelumnya
-        // Untuk saat ini, kembali ke main options untuk kesederhanaan
         mainPaymentOptions.classList.remove('hidden'); 
-        // Anda bisa menyimpan state method sebelumnya (bank/ewallet/minimarket) 
-        // untuk kembali ke detailPaymentOptions yang spesifik jika diinginkan.
     });
 
 

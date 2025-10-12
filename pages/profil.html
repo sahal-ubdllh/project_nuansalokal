@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna</title>
+    <link rel="stylesheet" href="../css/profil.css">
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-left">
+            <a href="../index.html" class="nav-icon back-arrow"><i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="navbar-center">
+            <h1>Profil Saya</h1>
+        </div>
+        <div class="navbar-right"></div>
+    </header>
+
+    <div id="auth-view" class="auth-container hidden">
+        <div class="auth-message">
+            <i class="fas fa-user-circle auth-icon"></i>
+            <h2>Anda Belum Masuk</h2>
+            <p>Masuk atau daftar untuk melihat pesanan, chat, dan mengelola akun Anda.</p>
+        </div>
+        <div class="auth-buttons">
+            <a href="login.html" class="action-btn blue-btn">Masuk</a>
+            <a href="register.html" class="action-btn secondary-btn">Daftar</a>
+        </div>
+    </div>
+
+    <div id="profile-view" class="hidden">
+        <main class="profile-container">
+            <div class="profile-picture-section">
+                <div class="profile-picture-wrapper">
+                    <img id="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><circle cx='60' cy='60' r='60' fill='%23ccc'/><path fill='%23fff' d='M60 20c-16.5 0-30 13.5-30 30s13.5 30 30 30s30-13.5 30-30s-13.5-30-30-30zm0 10c11 0 20 9 20 20s-9 20-20 20s-20-9-20-20s9-20 20-20zm0 55c-15.3 0-28.7 5.7-39.2 15.3l-1.3 1.2c-1.3 1.3-2 3-2 4.8v3.7h85.1v-3.7c0-1.8-.7-3.5-2-4.8l-1.3-1.2c-10.5-9.6-23.9-15.3-39.2-15.3z'/></svg>" alt="Foto Profil">
+                    <div class="edit-icon" id="edit-photo-icon">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" id="photo-upload" accept="image/*">
+                    </div>
+                </div>
+            </div>
+
+            <section class="profile-menu">
+                <div class="menu-item" data-field="info-pribadi">
+                    <div class="item-header">
+                        <label>Informasi Pribadi</label>
+                        <span class="value-display" id="display-info-pribadi">Nama Pengguna</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div class="edit-mode-form hidden" id="form-info-pribadi">
+                        <input type="text" id="edit-nama" placeholder="Nama Lengkap">
+                        <input type="tel" id="edit-telp" placeholder="Nomor Telepon">
+                    </div>
+                </div>
+                <div class="menu-item" data-field="info-bank">
+                    <div class="item-header">
+                        <label>Info Akun Bank</label>
+                        <span class="value-display" id="display-info-bank">Pilih Bank...</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div class="edit-mode-form hidden" id="form-info-bank">
+                        <select id="edit-bank-select">
+                            <option value="">Pilih Bank...</option>
+                            <option value="Bank BRI">Bank BRI</option>
+                            <option value="Bank BJB">Bank BJB</option>
+                            <option value="Bank Lainnya">Bank Lainnya</option>
+                        </select>
+                        <input type="text" id="edit-norek" placeholder="Nomor Rekening">
+                    </div>
+                </div>
+                <div class="menu-item" data-field="info-alamat">
+                    <div class="item-header">
+                        <label>Ubah Info Alamat</label>
+                        <span class="value-display" id="display-info-alamat">Alamat belum diatur</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                     <div class="edit-mode-form hidden" id="form-info-alamat">
+                        <textarea id="edit-alamat" placeholder="Alamat Lengkap"></textarea>
+                    </div>
+                </div>
+                <div class="menu-item" data-field="email">
+                    <div class="item-header">
+                        <label>Alamat Email</label>
+                        <span class="value-display" id="display-email">user@example.com</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                     <div class="edit-mode-form hidden" id="form-email">
+                        <input type="email" id="edit-email" placeholder="Alamat Email Baru">
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <div class="button-area">
+            <button id="pesanan-btn" class="action-btn orange-btn">Pesanan Saya</button>
+            <button id="main-action-btn" class="action-btn blue-btn">Edit</button>
+            <button id="logout-btn" class="action-btn red-btn">Keluar</button>
+        </div>
+    </div>
+
+    <script src="../js/profil.js"></script>
+</body>
+</html>

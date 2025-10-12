@@ -24,9 +24,9 @@
 
       <nav class="nav-links-container">
         <ul class="nav-links">
-          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="index.html">Beranda</a></li>
           <li><a href="#produk">Kategori</a></li>
-          <li><a href="#favorit">Favorit</a></li>
+          <li><a href="./pages/about.html">Tentang Kami</a></li>
         </ul>
       </nav>
 
@@ -36,9 +36,9 @@
       </div>
 
       <div class="icon-container">
-        <a href="./cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
-        <a href="./pages/message.html" class="message-icon"><i class="fa-solid fa-message"></i></a>
-        <a href="./pages/profil.html" class="profile-icon"><i class="fas fa-user"></i></a>
+        <a href="pages/cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
+        <a href="pages/chat.html" class="message-icon"><i class="fa-solid fa-message"></i></a>
+        <a href="pages/profil.html" class="profile-icon"><i class="fas fa-user"></i></a>
       </div>
     </div>
   </header>
@@ -54,18 +54,18 @@
       </div>
 
       <div class="icon-container">
-        <a href="./cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
-        <a href="./pages/message.html" class="message-icon"><i class="fa-solid fa-message"></i></a>
+        <a href="./pages/cart.html" class="cart-icon"><i class="fas fa-cart-shopping"></i></a>
+        <a href="./pages/chat.html" class="message-icon"><i class="fa-solid fa-message"></i></a>
       </div>
     </nav>
   </header>
 
   <!-- ===== NAVBAR (BOTTOM MOBILE) ===== -->
   <div class="navbar-bottom">
-    <a href="#"><div class="nav-item"><i class="fas fa-home"></i>Beranda</div></a>
-    <a href="#"><div class="nav-item"><i class="fas fa-fire"></i>Terlaris</div></a>
+    <a href="index.html"><div class="nav-item"><i class="fas fa-home"></i>Beranda</div></a>
+    <a href="#produk-terlaris"><div class="nav-item"><i class="fas fa-fire"></i>Terlaris</div></a>
     <a href="./pages/cart.html"><div class="nav-item"><i class="fas fa-cart-shopping"></i>Keranjang</div></a>
-    <a href="./admin.html"><div class="nav-item"><i class="fas fa-user"></i>Profil</div></a>
+    <a href="./pages/profil.html"><div class="nav-item"><i class="fas fa-user"></i>Profil</div></a>
   </div>
 
   <!-- ===== MAIN CONTENT ===== -->
@@ -78,10 +78,8 @@
           <div class="item"><img src="assets/slider-image/4.png" alt=""></div>
           <div class="item"><img src="assets/slider-image/7.png" alt=""></div>
           <div class="item"><img src="assets/slider-image/3.png" alt=""></div>
-          <div class="item"><img src="assets/slider-image/1.png" alt=""></div>
           <div class="item"><img src="assets/slider-image/5.png" alt=""></div>
           <div class="item"><img src="assets/slider-image/6.png" alt=""></div>
-          <div class="item"><img src="assets/slider-image/2.png" alt=""></div>
         </div>
 
         <div class="buttons">
@@ -92,7 +90,7 @@
         <ul class="dots">
           <li class="active"></li>
           <li></li><li></li><li></li>
-          <li></li><li></li><li></li><li></li>
+          <li></li><li></li>
         </ul>
       </div>
 
@@ -110,12 +108,8 @@
         <li><a href="#" class="kategori-item" data-kategori="Kerajinan"><img src="assets/kategori-image/kategori2.png" alt="">Kerajinan</a></li>
         <li><a href="#" class="kategori-item" data-kategori="Pakaian"><img src="assets/kategori-image/kategori3.png" alt="">Pakaian</a></li>
         <li><a href="#" class="kategori-item" data-kategori="Tas"><img src="assets/kategori-image/kategori4.png" alt="">Tas</a></li>
-        <li><a href="#" class="kategori-item" data-kategori="Batik"><img src="assets/kategori-image/kategori5.png" alt="">Batik</a></li>
-        <li><a href="#" class="kategori-item" data-kategori="Hijab"><img src="assets/kategori-image/kategori6.png" alt="">Hijab</a></li>
-        <li><a href="#" class="kategori-item" data-kategori="Kecantikan"><img src="assets/kategori-image/kategori7.png" alt="">Kecantikan</a></li>
-        <li><a href="#" class="kategori-item" data-kategori="Sandal"><img src="assets/kategori-image/kategori8.png" alt="">Sendal</a></li>
+        <li><a href="#" class="kategori-item" data-kategori="Batik"><img src="assets/kategori-image/kategori5.jpeg" alt="">Batik</a></li>
         <li><a href="#" class="kategori-item" data-kategori="Makanan"><img src="assets/kategori-image/kategori9.png" alt="">Makanan</a></li>
-        <li><a href="#" class="kategori-item" data-kategori="Parfum"><img src="assets/kategori-image/kategori10.png" alt="">Parfum</a></li>
       </ul>
     </section>
 
@@ -143,7 +137,7 @@
       </section>
 
       <!-- 3) Produk Terlaris -->
-      <section class="produk-terlaris">
+      <section class="produk-terlaris" id="produk-terlaris">
         <h2>Produk Terlaris</h2>
         <div class="produk-list"></div>
       </section>
@@ -165,7 +159,7 @@
         <ul>
           <li><a href="#beranda">Beranda</a></li>
           <li><a href="#produk">Kategori</a></li>
-          <li><a href="#">Cara Pesan</a></li>
+          <li><a href="./pages/panduan.html">Cara Pesan</a></li>
           <li><a href="#">FAQ</a></li>
         </ul>
       </div>
@@ -173,9 +167,9 @@
       <div class="footer-column contact">
         <h4>Kontak Kami</h4>
         <ul>
-          <li><i class="fas fa-map-marker-alt"></i><span>Jl. Kreatif No. 25, Yogyakarta, Indonesia</span></li>
-          <li><i class="fas fa-envelope"></i><span>dukungan@nuansalokal.id</span></li>
-          <li><i class="fas fa-phone"></i><span>(0274) 555-1234</span></li>
+          <li><i class="fas fa-map-marker-alt"></i><span>Universitas Majalengka</span></li>
+          <li><i class="fas fa-envelope"></i><span>sahalubaidillah@gmail.com</span></li>
+          <li><i class="fas fa-phone"></i><span>(+62) 859 1133 87744</span></li>
         </ul>
       </div>
       
@@ -201,7 +195,5 @@
   <script src="js/produk.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
-  <!-- <script src="js/kategori.js"></script> -->
-  <script src="js/produkTerlaris.js"></script>
 </body>
 </html>

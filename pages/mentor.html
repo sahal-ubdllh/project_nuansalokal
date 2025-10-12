@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor - Nuansa Lokal</title>
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/mentor.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header-mentor">
+            <a href="about.html" class="back-arrow" aria-label="Kembali ke halaman sebelumnya"><i class="fas fa-chevron-left"></i></a>
+            <h1 class="page-title">Mentor Kami</h1>
+        </header>
+
+        <div class="mentor-slider-area">
+            <button class="nav-arrow left-arrow" onclick="changeMentor(-1)" aria-label="Mentor sebelumnya"><i class="fas fa-chevron-left"></i></button>
+            
+            <div class="mentor-header-info">
+                <div class="mentor-slide-track">
+                    <div class="mentor-slide active" data-id="1">
+                        <div class="mentor-details">
+                            <p class="mentor-name">SAHAL UBAIDILLAH GUNARDO</p>
+                            <p class="mentor-title">Bisnis digital</p>
+                        </div>
+                        <div class="mentor-photo-container">
+                            <img src="../assets/mentor-1.png" alt="Foto Sahal Ubaidillah" class="mentor-photo">
+                        </div>
+                    </div>
+                    
+                    <div class="mentor-slide" data-id="2">
+                        <div class="mentor-details">
+                            <p class="mentor-name">ANGGA PRASETYA</p>
+                            <p class="mentor-title">Spesialis Pemasaran Digital</p>
+                        </div>
+                        <div class="mentor-photo-container">
+                            <img src="../assets/mentor-1.png" alt="Foto Angga Prasetya" class="mentor-photo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="nav-arrow right-arrow" onclick="changeMentor(1)" aria-label="Mentor berikutnya"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="mentor-materi-grid-container">
+            <div class="materi-grid">
+                <div class="materi-column" data-mentor-target="1" data-category="pengembangan-usaha">
+                    <h3 class="materi-title">Pengembangan Usaha</h3>
+                    <div class="materi-card" onclick="showMateriDetail('materi-1-1')">
+                        <img src="../assets/mentor1.jpg" alt="Ilustrasi Pengembangan Usaha" class="card-illustration">
+                        <p class="card-subtitle">Bagaimana cara bisnis Anda mendapatkan peminat?</p>
+                    </div>
+                    <div class="materi-card" onclick="showMateriDetail('materi-1-2')">
+                        <img src="../assets/mentor2.jpg" alt="Ilustrasi Pemasaran" class="card-illustration">
+                        <p class="card-subtitle">Strategi pemasaran efektif untuk menarik pelanggan baru.</p>
+                    </div>
+                </div>
+                
+                <div class="materi-column" data-mentor-target="1" data-category="pengembangan-akun">
+                    <h3 class="materi-title">Cara Pengembangan Akun</h3>
+                    <div class="materi-card" onclick="showMateriDetail('materi-1-3')">
+                        <img src="../assets/mentor3.jpg" alt="Ilustrasi Pengembangan Akun" class="card-illustration">
+                        <p class="card-subtitle">Optimasi akun bisnis Anda di berbagai platform digital.</p>
+                    </div>
+                </div>
+                
+                <div class="materi-column" data-mentor-target="1" data-category="personal-branding">
+                    <h3 class="materi-title">Personal Branding</h3>
+                    <div class="materi-card" onclick="showMateriDetail('materi-1-4')">
+                        <img src="../assets/mentor2.jpg" alt="Ilustrasi Personal Branding" class="card-illustration">
+                        <p class="card-subtitle">Tutorial membuat branding produk yang kuat dan menarik.</p>
+                    </div>
+                </div>
+
+                <div class="materi-column" data-mentor-target="2" data-category="pemasaran-digital">
+                    <h3 class="materi-title">Pemasaran Digital</h3>
+                    <div class="materi-card" onclick="showMateriDetail('materi-2-1')">
+                        <img src="../assets/mentor1.jpg" alt="Ilustrasi Pemasaran Digital" class="card-illustration">
+                        <p class="card-subtitle">Strategi terbaru dalam dunia pemasaran online.</p>
+                    </div>
+                    <div class="materi-card" onclick="showMateriDetail('materi-2-2')">
+                        <img src="../assets/mentor3.jpg" alt="Ilustrasi SEO" class="card-illustration">
+                        <p class="card-subtitle">Mengoptimalkan SEO untuk meningkatkan visibilitas produk.</p>
+                    </div>
+                </div>
+                
+                <div class="materi-column" data-mentor-target="2" data-category="manajemen-keuangan">
+                    <h3 class="materi-title">Manajemen Keuangan</h3>
+                    <div class="materi-card" onclick="showMateriDetail('materi-2-3')">
+                        <img src="../assets/mentor2.jpg" alt="Ilustrasi Keuangan" class="card-illustration">
+                        <p class="card-subtitle">Tips mengelola keuangan bisnis agar tetap sehat.</p>
+                    </div>
+                </div>
+                
+                <div class="materi-column" data-mentor-target="2" data-category="inovasi-produk">
+                    <h3 class="materi-title">Inovasi Produk</h3>
+                    <div class="materi-card" onclick="showMateriDetail('materi-2-4')">
+                        <img src="../assets/mentor1.jpg" alt="Ilustrasi Inovasi" class="card-illustration">
+                        <p class="card-subtitle">Bagaimana menciptakan produk yang diminati pasar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="materiModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" aria-label="Tutup">&times;</span>
+                <h2 id="modalTitle">Detail Materi</h2>
+                <p id="modalContent">Deskripsi materi akan muncul di sini.</p>
+                
+                <h3 class="ref-title">Referensi Video</h3>
+                <a id="youtubeLink" href="#" target="_blank" class="btn-youtube" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> Tonton di YouTube
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/mentor.js"></script>
+</body>
+</html>

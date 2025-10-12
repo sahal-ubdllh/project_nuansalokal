@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/chat-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar" id="main-chat-navbar">
+        <div class="navbar-left">
+            <a href="../index.html" class="nav-icon back-arrow"><i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="navbar-center">
+            <h1>Chat</h1>
+        </div>
+        <div class="navbar-right">
+            </div>
+    </header>
+
+    <main class="chat-list-container" id="chat-list">
+        
+        <div class="chat-item" data-seller-id="2gb-store" data-seller-name="2GB Store">
+            <div class="profile-pic">2G</div>
+            <div class="chat-info">
+                <strong>2GB Store</strong>
+                <p>Hallo! Terima Kasih atas pembelian Anda. Jika Anda puas denga...</p>
+            </div>
+            <div class="chat-date">01/06</div>
+            <button class="delete-history-btn" data-seller-id="2gb-store"><i class="fas fa-trash"></i></button>
+        </div>
+
+        <div class="chat-item" data-seller-id="bibaw-store" data-seller-name="Bibaw Fashion">
+            <div class="profile-pic">B</div>
+            <div class="chat-info">
+                <strong>Bibaw Fashion</strong>
+                <p>Hallo! Terima Kasih atas pembelian Anda. Jika Anda puas denga...</p>
+            </div>
+            <div class="chat-date">01/06</div>
+            <button class="delete-history-btn" data-seller-id="bibaw-store"><i class="fas fa-trash"></i></button>
+        </div>
+        
+    </main>
+
+    <section id="chat-window" class="chat-window hidden">
+        <header class="navbar chat-detail-navbar">
+            <div class="navbar-left">
+                <button class="nav-icon back-arrow" id="close-chat-window"><i class="fas fa-arrow-left"></i></button>
+            </div>
+            <div class="navbar-center">
+                <h1 id="seller-name-title">Nama Toko</h1>
+            </div>
+            <div class="navbar-right">
+                </div>
+        </header>
+
+        <div class="messages-container" id="messages-container">
+            </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ketik pesan di sini...">
+            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </section>
+    
+    <div id="delete-modal" class="modal hidden">
+        <div class="modal-content small-modal">
+            <h3>Hapus Pesan?</h3>
+            <p>Pilih opsi penghapusan:</p>
+            <div class="delete-options">
+                <button id="delete-for-me-btn" class="action-btn red-btn">Hapus untuk Saya</button>
+                <button id="delete-cancel-btn" class="action-btn default-btn">Batal</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../js/chat.js"></script>
+</body>
+</html>

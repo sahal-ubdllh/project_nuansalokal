@@ -1,0 +1,169 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Warna Branding */
+:root {
+    --color-primary: #1a237e; /* Biru Gelap Nuansa Lokal */
+    --color-accent: #ffc107; /* Kuning Kunyit/Aksen */
+    --color-text: #201e1e;
+    --color-light-bg: #ffffff;
+    --color-dark-bg: #1a1a1a;
+}
+
+/* Tombol Dasar */
+.btn-primary {
+    background-color: var(--color-accent);
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e0a800;
+}
+
+/* --- Formulir (Login/Daftar) --- */
+.form-container {
+    display: flex;
+    max-width: 850px;
+    margin: 50px auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-color: rgba(14, 119, 160, 0.158);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.form-image {
+    width: 40%;
+    /* Gunakan background image dari form_login/daftar1.jpg */
+    background: url('https://i.pinimg.com/736x/4c/f0/c3/4cf0c386feb5a0a799a0678144898847.jpg') no-repeat center center; 
+    background-size: cover;
+    background-color: #0e0d0d; 
+}
+
+.form-content {
+    width: 60%;
+    padding: 50px;
+    text-align: center;
+    font-style: 'poppins';
+    color: #1a1919 ;
+}
+
+.form-content h1 {
+    margin-bottom: 35px;
+    font-size: 2em;
+    color: #1f1d1d;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #ededed; 
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 12px 15px; /* Padding lebih besar */
+}
+
+.input-group i {
+    color: #1a1919;
+    margin-right: 15px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    background-color: transparent;
+    font-size: 1em;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: #1a237e;
+}
+
+.btn-primary {
+    background-color: var(--color-accent); /* Kuning */
+    color: rgba(12, 12, 12, 0.719);
+    /* ... styling tombol sudah ada ... */
+    margin-top: 15px;
+}
+
+.separator {
+    margin: 20px 0;
+    color: #252525;
+}
+
+.btn-google {
+    /* Gaya yang sudah ada, misalnya: */
+    display: flex; /* Untuk menata ikon dan teks secara horizontal */
+    align-items: center; /* Untuk menyejajarkan vertikal */
+    justify-content: center; /* Untuk memusatkan konten (opsional, tergantung desain) */
+    padding: 12px 20px;
+    background-color: white; /* Mungkin butuh background putih */
+    border: 1px solid #ccc; /* Seperti yang Anda miliki */
+    cursor: pointer;
+}
+
+.btn-google .google-icon {
+    /* Gaya untuk logo/ikon */
+    width: 20px; /* Atur ukuran ikon */
+    height: 20px;
+    margin-right: 10px; /* Memberi jarak antara ikon dan teks */
+    /* Pastikan gambar logo terlihat bagus */
+}
+
+
+
+/* Pastikan bagian ini sudah ada di style.css Anda */
+
+/* Input Group Styles */
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #ededed; /* Latar belakang abu-abu input */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 12px 15px; /* Padding untuk input yang terlihat tebal */
+    width: 100%; /* Memastikan input full width */
+}
+
+.input-group i {
+    color: #777;
+    margin-right: 15px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    background-color: transparent;
+    font-size: 1em;
+}
+
+/* Tombol Pendaftaran/Masuk */
+.btn-primary {
+    background-color: var(--color-accent); /* Kuning */
+    /* ... properti lainnya ... */
+}
+

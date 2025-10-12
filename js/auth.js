@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm");
   const registerForm = document.getElementById("registerForm");
+  const API_URL = "http://localhost:3001"; // Arahkan ke server Node.js Anda
 
   /* =======================================================
      LOGIN FORM
@@ -18,27 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch("auth.php", {
+        const response = await fetch(`${API_URL}/api/login`, { // Panggil endpoint login
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "login",
-            email,
-            password,
-          }),
+          body: JSON.stringify({ email, password }),
         });
 
         const data = await response.json();
 
-        if (data.success) {
-          alert("Login berhasil! Selamat datang, " + data.user);
-          window.location.href = "index.html";
+        if (response.ok) {
+          alert("Login berhasil! Selamat datang, " + data.user.username);
+          // Simpan info pengguna di localStorage untuk menandakan sudah login
+          localStorage.setItem('loggedInUser', JSON.stringify(data.user));
+          window.location.href = "../index.html"; // Arahkan ke halaman utama
         } else {
-          alert("Login gagal: " + data.message);
+          alert("Login gagal: " + data.error);
         }
       } catch (error) {
         console.error("Error login:", error);
-        alert("Terjadi kesalahan koneksi ke server.");
+        alert("Tidak dapat terhubung ke server. Pastikan server sudah berjalan.");
       }
     });
   }
@@ -50,12 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
     registerForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const nama = registerForm.querySelector('input[name="nama"]').value.trim();
-      const email = registerForm.querySelector('input[type="email"]').value.trim();
-      const password = registerForm.querySelector('input[type="password"]').value.trim();
-      const confirm = registerForm.querySelector('input[name="konfirmasi"]').value.trim();
+      const username = registerForm.querySelector('#username').value.trim();
+      const email = registerForm.querySelector('#email').value.trim();
+      const password = registerForm.querySelector('#password').value.trim();
+      const confirm = registerForm.querySelector('#confirmPassword').value.trim();
 
-      if (!nama || !email || !password || !confirm) {
+      if (!username || !email || !password || !confirm) {
         alert("Harap isi semua kolom pendaftaran!");
         return;
       }
@@ -66,28 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch("auth.php", {
+        const response = await fetch(`${API_URL}/api/register`, { // Panggil endpoint register
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "register",
-            nama,
-            email,
-            password,
-          }),
+          body: JSON.stringify({ username, email, password }),
         });
 
         const data = await response.json();
 
-        if (data.success) {
-          alert("Pendaftaran berhasil! Silakan login.");
-          window.location.href = "login.html";
+        if (response.ok) {
+          alert("Pendaftaran berhasil! Silakan masuk dengan akun Anda.");
+          window.location.href = "login.html"; // Arahkan ke halaman login
         } else {
-          alert("Pendaftaran gagal: " + data.message);
+          alert("Pendaftaran gagal: " + data.error);
         }
       } catch (error) {
         console.error("Error register:", error);
-        alert("Terjadi kesalahan koneksi ke server.");
+        alert("Tidak dapat terhubung ke server. Pastikan server sudah berjalan.");
       }
     });
   }

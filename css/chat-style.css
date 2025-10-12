@@ -1,0 +1,314 @@
+/* RESET DAN GLOBAL STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f8f8f8; 
+    color: #333;
+    min-height: 100vh;
+}
+
+/* NAVBAR STYLE */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #007bff; /* Biru Primary */
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-center h1 {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.nav-icon {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- DAFTAR CHAT (CHAT LIST) --- */
+.chat-list-container {
+    background-color: white;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative; /* PENTING untuk tombol hapus riwayat */
+}
+
+.chat-item:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.chat-info {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.chat-info strong {
+    font-size: 1em;
+    display: block;
+}
+
+.chat-info p {
+    font-size: 0.85em;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-date {
+    font-size: 0.8em;
+    color: #aaa;
+    padding-right: 10px; 
+}
+
+/* Tombol Hapus Riwayat */
+.delete-history-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 60px; 
+    background-color: #e74c3c; /* Merah */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    opacity: 0; 
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 5px 5px 0;
+}
+
+.chat-item:hover .delete-history-btn {
+    opacity: 1; 
+}
+
+/* Geser info saat tombol hapus muncul */
+.chat-item:hover .chat-info,
+.chat-item:hover .chat-date {
+    margin-right: 60px; 
+}
+
+
+/* --- JENDELA CHAT SPESIFIK (CHAT WINDOW) --- */
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8; 
+    z-index: 1500;
+}
+
+.messages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+}
+
+/* Pesan */
+.message {
+    display: flex;
+    margin-bottom: 8px;
+    max-width: 85%; 
+    position: relative;
+    padding: 0 10px; 
+}
+
+/* Pesan Penjual (Kiri) */
+.message.seller {
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+.message.seller .message-bubble {
+    background-color: white;
+    color: #333;
+    border-top-left-radius: 0;
+}
+
+/* Pesan Pengguna (Kanan) */
+.message.user {
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.message.user .message-bubble {
+    background-color: #e2f0ff; /* Biru Muda Pastel */
+    color: #333;
+    border-top-right-radius: 0;
+}
+
+.message-bubble {
+    padding: 8px 12px;
+    border-radius: 15px;
+    word-wrap: break-word;
+    max-width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.message-time {
+    font-size: 0.7em;
+    color: #999;
+    align-self: flex-end;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Tombol Hapus Pesan Tunggal */
+.delete-btn {
+    position: absolute;
+    top: -5px; 
+    right: -5px; 
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.7em;
+    cursor: pointer;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.message.user:hover .delete-btn {
+    display: flex; /* Tampilkan saat hover */
+}
+
+
+/* Chat Input Area */
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+#chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+#send-btn {
+    background-color: #007bff; /* Sesuai Navbar */
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+#send-btn:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- MODAL DELETE STYLES --- */
+.modal {
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-content.small-modal {
+    max-width: 300px; 
+    padding: 25px 20px 15px; 
+}
+
+.delete-options button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.red-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.default-btn {
+    background-color: #ddd;
+    color: #333;
+}
